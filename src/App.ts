@@ -1,4 +1,5 @@
 import express from 'express';
+import errorHandler from './middlewares/errorHandler';
 
 export default class App {
   private app: express.Application;
@@ -19,7 +20,7 @@ export default class App {
   }
 
   private errorHandler(): void {
-
+    this.app.use(errorHandler);
   }
 
   public start(PORT: number): void {
