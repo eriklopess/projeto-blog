@@ -1,5 +1,6 @@
 import express from 'express';
 import errorHandler from './middlewares/errorHandler';
+import authenticationRouter from './routes/authentication';
 
 export default class App {
   private app: express.Application;
@@ -16,7 +17,7 @@ export default class App {
   }
 
   private routes(): void {
-
+    this.app.use('/', authenticationRouter);
   }
 
   private errorHandler(): void {
