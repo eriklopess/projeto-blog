@@ -1,4 +1,5 @@
 import express from 'express';
+import notFound from './middlewares/404';
 import errorHandler from './middlewares/errorHandler';
 import authenticationRouter from './routes/authentication';
 
@@ -11,6 +12,7 @@ export default class App {
     this.config();
     this.routes();
     this.errorHandler();
+    this.app.use(notFound);
   }
 
   private middlewares(): void {
