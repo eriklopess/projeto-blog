@@ -8,12 +8,17 @@ export default class App {
   constructor() {
     this.app = express();
     this.middlewares();
+    this.config();
     this.routes();
     this.errorHandler();
   }
 
   private middlewares(): void {
+    this.app.use(express.json());
+  }
 
+  private config(): void {
+    this.app.disable('x-powered-by');
   }
 
   private routes(): void {

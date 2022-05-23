@@ -4,6 +4,6 @@ import authentication from '../schemas/authentication';
 
 const authenticationRouter = Router();
 
-authenticationRouter.post('/auth', validation(authentication));
+authenticationRouter.post('/auth', validation(authentication), (req: Request, res: Response) => res.send(''));
 
 export default authenticationRouter;
