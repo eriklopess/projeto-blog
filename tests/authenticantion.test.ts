@@ -10,8 +10,8 @@ describe('POST /auth/register', () => {
         chai.request('http://localhost:3000')
           .post('/auth')
           .send({
-            email: 'emailinvalido',
-            password: 'senha123123',
+            email: 'email@valid.com',
+            password: 'senha123',
           })
           .end((_err, res) => {
             res.should.have.status(200);
