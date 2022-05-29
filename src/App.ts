@@ -2,6 +2,8 @@ import express from 'express';
 import notFound from './middlewares/404';
 import errorHandler from './middlewares/errorHandler';
 import authenticationRouter from './routes/authentication';
+import connectToDatabase from './connection';
+import UserModel from './model/User';
 
 export default class App {
   private app: express.Application;
@@ -31,7 +33,8 @@ export default class App {
     this.app.use(errorHandler);
   }
 
-  public start(PORT: number): void {
+  public async start(PORT: number): Promise<void> {
+    await connectToDatabase();
     this.app.listen(PORT, () => console.log(`Server is listening on: ${PORT}`));
   }
 }
