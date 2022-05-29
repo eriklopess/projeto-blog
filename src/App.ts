@@ -3,7 +3,6 @@ import notFound from './middlewares/404';
 import errorHandler from './middlewares/errorHandler';
 import authenticationRouter from './routes/authentication';
 import connectToDatabase from './connection';
-import UserModel from './model/User';
 
 export default class App {
   private app: express.Application;
